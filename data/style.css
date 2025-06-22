@@ -1,0 +1,367 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --primary-color: #0052D4;
+    --secondary-color: #65C7F7;
+    --background-color: #f0f2f5;
+    --card-background: #ffffff;
+    --text-color: #333;
+    --text-light: #fff;
+    --success-color: #4CAF50;
+    --danger-color: #F44336;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- Login Screen --- */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+}
+
+.login-box {
+    background: var(--card-background);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+.login-box h1 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.login-box p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-box button:hover {
+    background-color: #003d9e;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- App Container --- */
+.app-container {
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 0 10px;
+}
+
+header h1 {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+#welcome-msg {
+    font-weight: 600;
+}
+
+#logout-btn {
+    padding: 8px 16px;
+    border: 1px solid var(--danger-color);
+    background: transparent;
+    color: var(--danger-color);
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#logout-btn:hover {
+    background: var(--danger-color);
+    color: var(--text-light);
+}
+
+/* --- Layout improvements --- */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 2rem;
+    align-items: flex-start;
+    margin-top: 2rem;
+}
+
+.card {
+    background: var(--card-background);
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    padding: 2rem 1.5rem;
+    margin-bottom: 2rem;
+    transition: box-shadow 0.2s;
+}
+
+.card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* --- Chart full width --- */
+.chart-container {
+    grid-column: 1 / 4;
+    padding: 2rem 2rem 1.5rem 2rem;
+    margin-bottom: 2rem;
+    background: linear-gradient(90deg, #e3f0ff 0%, #f8fbff 100%);
+    border-radius: 18px;
+    box-shadow: 0 2px 16px rgba(0,82,212,0.07);
+}
+
+#energy-chart {
+    width: 100% !important;
+    max-width: 100%;
+    min-height: 320px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,82,212,0.04);
+    margin-bottom: 1.5rem;
+}
+
+.chart-controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 1.5rem;
+    margin-bottom: 1.2rem;
+    background: none;
+    border-radius: 0;
+    padding: 0;
+}
+
+.period-selection label,
+.chart-type-selection label {
+    font-weight: 500;
+    color: #0052D4;
+}
+
+.period-selection select,
+.chart-type-selection select {
+    border: 1px solid #b3c6e0;
+    background: #f4f8ff;
+    color: #0052D4;
+    font-weight: 500;
+}
+
+.chart-summary {
+    display: flex;
+    justify-content: flex-end;
+    gap: 2.5rem;
+    margin-top: 1.2rem;
+    border-top: 1px solid #e0e7ef;
+    padding-top: 1rem;
+}
+
+.summary-item span:last-child {
+    color: #1a237e;
+}
+
+/* --- Power, Data, Timer cards --- */
+.power-control, .data-display, .timer-settings {
+    min-width: 220px;
+}
+
+.power-control {
+    background: linear-gradient(120deg, #e3f0ff 0%, #f8fbff 100%);
+    box-shadow: 0 2px 12px rgba(0,82,212,0.07);
+}
+
+.timer-settings {
+    background: linear-gradient(120deg, #f8fbff 0%, #e3f0ff 100%);
+    box-shadow: 0 2px 12px rgba(0,82,212,0.07);
+}
+
+.data-display {
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0,82,212,0.04);
+}
+
+/* --- Device selection --- */
+.device-selection {
+    margin-bottom: 1.2rem;
+    text-align: left;
+}
+
+.device-selection label {
+    font-weight: 500;
+    color: #0052D4;
+    margin-right: 0.5rem;
+}
+
+.device-selection select {
+    padding: 7px 14px;
+    border-radius: 7px;
+    border: 1px solid #b3c6e0;
+    font-size: 1rem;
+    background-color: #f4f8ff;
+    color: #0052D4;
+    font-weight: 500;
+}
+
+/* --- Buttons --- */
+button, .toggle-btn {
+    background: linear-gradient(90deg, #0052D4 0%, #65C7F7 100%);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,82,212,0.08);
+    transition: background 0.2s, box-shadow 0.2s;
+}
+button:hover, .toggle-btn:hover {
+    background: linear-gradient(90deg, #003c9e 0%, #3fa9f5 100%);
+    box-shadow: 0 4px 16px rgba(0,82,212,0.12);
+}
+
+.toggle-btn.off {
+    background: linear-gradient(90deg, #b3c6e0 0%, #e3f0ff 100%);
+    color: #0052D4;
+}
+
+/* --- Grid for live data --- */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+}
+.grid-item {
+    background: #f4f8ff;
+    border-radius: 8px;
+    padding: 1rem 0.5rem;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0,82,212,0.04);
+}
+.grid-item span {
+    color: #0052D4;
+    font-size: 0.95rem;
+}
+.grid-item h3 {
+    font-size: 1.3rem;
+    color: #1a237e;
+    margin-top: 0.3rem;
+}
+
+.total-energy {
+    background: #e3f0ff;
+    border-radius: 8px;
+    padding: 0.7rem 1rem;
+    text-align: center;
+    color: #0052D4;
+    font-weight: 600;
+    margin-top: 0.7rem;
+}
+
+/* --- Alert Notifications */
+.alert-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 300px;
+    z-index: 1000;
+}
+
+.alert {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateX(100%);
+    animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 15px; }
+}
+@media (max-width: 1100px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    .chart-container {
+        grid-column: 1 / 2;
+        padding: 1rem;
+    }
+}
+@media (max-width: 700px) {
+    .container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .card {
+        padding: 1rem 0.5rem;
+    }
+    .chart-container {
+        padding: 0.5rem;
+    }
+    #energy-chart {
+        min-height: 180px;
+    }
+    .chart-summary {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+}

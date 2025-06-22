@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IoT Smart Plug</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="login-container" class="login-container">
+        <div class="login-box">
+            <h1>Smart Plug Login</h1>
+            <p>Enter a username to continue</p>
+            <input type="text" id="username-input" placeholder="Username">
+            <button id="login-btn">Login</button>
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="app-container" class="app-container hidden">
+        <header>
+            <h1>IoT Smart Plug</h1>
+            <div class="user-info">
+                <div class="connection-status">
+                    <span id="connection-dot" class="dot disconnected"></span>
+                    <span id="connection-text">Disconnected</span>
+                </div>
+                <button id="connect-btn">Connect</button>
+                <span id="welcome-msg"></span>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <main class="container">
+            <section class="card power-control">
+                <h2>Power</h2>
+                <div class="device-selection">
+                    <label for="device-type">Device Type:</label>
+                    <select id="device-type">
+                        <option value="">Select a device</option>
+                        <option value="fridge">Refrigerator</option>
+                        <option value="geyser">Geyser</option>
+                        <option value="tv">Television</option>
+                        <option value="ac">Air Conditioner</option>
+                        <option value="washingMachine">Washing Machine</option>
+                        <option value="microwave">Microwave</option>
+                        <option value="dishwasher">Dishwasher</option>
+                        <option value="oven">Oven</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button id="toggle-btn" class="toggle-btn off">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="50px" height="50px"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+                </button>
+                <div class="relay-status">
+                    <span>Status: </span>
+                    <span id="plug-status" class="off">OFF</span>
+                </div>
+            </section>
+
+            <section class="card data-display">
+                <h2>Live Data</h2>
+                <div class="grid-container">
+                    <div class="grid-item"><span>Voltage</span><h3 id="voltage">-- V</h3></div>
+                    <div class="grid-item"><span>Current</span><h3 id="current">-- A</h3></div>
+                    <div class="grid-item"><span>Power</span><h3 id="power">-- W</h3></div>
+                    <div class="grid-item"><span>Frequency</span><h3 id="frequency">-- Hz</h3></div>
+                </div>
+                <div class="total-energy">
+                    <h4>Total Energy Today</h4>
+                    <p id="energy">-- kWh</p>
+                </div>
+            </section>
+
+            <section class="card timer-settings">
+                <h2>Timers</h2>
+                <div class="timer-input">
+                    <label for="timer-on-input">Turn ON in (minutes)</label>
+                    <input type="number" id="timer-on-input" min="1" placeholder="e.g., 5">
+                    <button id="set-on-timer-btn">Set</button>
+                </div>
+                <div class="timer-input">
+                    <label for="timer-off-input">Turn OFF in (minutes)</label>
+                    <input type="number" id="timer-off-input" min="1" placeholder="e.g., 30">
+                    <button id="set-off-timer-btn">Set</button>
+                </div>
+            </section>
+
+            <section class="card chart-container">
+                <h2>Energy Consumption History</h2>
+                <div class="chart-controls">
+                    <div class="period-selection">
+                        <label for="time-period">Time Period:</label>
+                        <select id="time-period">
+                            <option value="day">Last 24 Hours</option>
+                            <option value="week">Last Week</option>
+                            <option value="month">Last Month</option>
+                            <option value="year">Last Year</option>
+                        </select>
+                    </div>
+                    <div class="chart-type-selection">
+                        <label for="chart-type">View:</label>
+                        <select id="chart-type">
+                            <option value="energy">Energy (kWh)</option>
+                            <option value="cost">Cost</option>
+                        </select>
+                    </div>
+                </div>
+                <canvas id="energy-chart"></canvas>
+                <div id="chart-summary" class="chart-summary">
+                    <div class="summary-item">
+                        <span>Total Energy:</span>
+                        <span id="total-energy">-- kWh</span>
+                    </div>
+                    <div class="summary-item">
+                        <span>Total Cost:</span>
+                        <span id="total-cost">-- USD</span>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="alert-container" class="alert-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
