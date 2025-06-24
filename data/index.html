@@ -8,13 +8,28 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <!-- Login Screen -->
+    <!-- Login/Signup Screen -->
     <div id="login-container" class="login-container">
-        <div class="login-box">
-            <h1>Smart Plug Login</h1>
-            <p>Enter a username to continue</p>
-            <input type="text" id="username-input" placeholder="Username">
-            <button id="login-btn">Login</button>
+        <div class="login-card">
+            <div class="login-tabs">
+                <button id="tab-login" class="active">Login</button>
+                <button id="tab-signup">Sign Up</button>
+            </div>
+            <div id="login-form">
+                <div class="login-icon">🔌</div>
+                <h1>Welcome Back</h1>
+                <input type="text" id="username-input" placeholder="Username" autocomplete="username">
+                <input type="password" id="password-input" placeholder="Password" autocomplete="current-password">
+                <button id="login-btn">Login</button>
+            </div>
+            <div id="signup-form" class="hidden">
+                <div class="login-icon">✨</div>
+                <h1>Create Account</h1>
+                <input type="text" id="signup-username" placeholder="Username" autocomplete="username">
+                <input type="password" id="signup-password" placeholder="Password" autocomplete="new-password">
+                <input type="password" id="signup-password2" placeholder="Confirm Password" autocomplete="new-password">
+                <button id="signup-btn">Sign Up</button>
+            </div>
         </div>
     </div>
 
@@ -35,7 +50,10 @@
 
         <main class="container">
             <section class="card power-control">
-                <h2>Power</h2>
+                <div class="card-header">
+                    <h2>Power</h2>
+                    <span id="device-icon" class="device-icon">🔌</span>
+                </div>
                 <div class="device-selection">
                     <label for="device-type">Device Type:</label>
                     <select id="device-type">
