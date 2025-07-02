@@ -1,0 +1,531 @@
+/* App.css - Further UI refinements based on feedback */
+
+/* Base styles */
+.app-root {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #232526 0%, #414345 100%);
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-container, .dashboard-container {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Auth card styles */
+.auth-card {
+  background: rgba(30, 32, 34, 0.95);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  padding: 2rem 2.5rem;
+  width: 90vw;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Auth tab styles */
+.auth-tabs {
+  display: flex;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.auth-tabs button {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1.1rem;
+  padding: 0.7rem 0;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.auth-tabs button.active {
+  color: #00eaff;
+  border-bottom: 2.5px solid #00eaff;
+}
+
+/* Auth form styles */
+.auth-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.auth-form input {
+  background: #232526;
+  border: 1.5px solid #444;
+  border-radius: 0.7rem;
+  color: #fff;
+  padding: 0.8rem 1rem;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.auth-form input:focus {
+  border: 1.5px solid #00eaff;
+}
+
+.auth-form button {
+  background: linear-gradient(90deg, #00eaff 0%, #0052d4 100%);
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.9rem 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  transition: background 0.2s;
+}
+
+.auth-form button:hover {
+  background: linear-gradient(90deg, #0052d4 0%, #00eaff 100%);
+}
+
+.auth-error {
+  color: #ff4d4f;
+  margin-top: 0.7rem;
+  font-size: 0.98rem;
+  text-align: center;
+}
+
+/* Dashboard header styles */
+.dashboard-container header {
+  width: 100vw;
+  padding: 1.2rem 1.5rem 0.5rem 1.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(30,32,34,0.85);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.dashboard-container header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #00eaff;
+  margin: 0;
+}
+
+/* User info styles */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.user-info button {
+  background: #ff4d4f;
+  color: #fff;
+  border: none;
+  border-radius: 0.7rem;
+  padding: 0.5rem 1.1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.user-info button:hover {
+  background: #d9363e;
+}
+
+/* Main content styles */
+main {
+  width: 100vw;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1.2rem 0.5rem 2rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Card styles */
+.card {
+  background: rgba(30,32,34,0.93);
+  border-radius: 1.5rem; /* Larger border radius */
+  box-shadow: 0 6px 20px 0 rgba(31, 38, 135, 0.25); /* Stronger shadow */
+  padding: 1.5rem 2rem; /* Increased padding */
+  margin-bottom: 1.5rem; /* Increased bottom margin */
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; /* Increased gap */
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.device-icon {
+  font-size: 2.2rem;
+}
+
+/* Device selection and IP input styles */
+.device-selection select,
+.device-ip-input {
+  width: 100%; /* Ensure both take full width of their container */
+  padding: 0.8rem 1rem; /* Increased padding for better touch targets */
+  border-radius: 0.8rem; /* Slightly larger border radius */
+  border: 1.5px solid #444;
+  background: #232526;
+  color: #fff;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+  appearance: none; /* Remove default select styling */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23ffffff%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%204.6%201.6%208.8%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'); /* Custom arrow */
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 0.65em auto;
+}
+
+/* Toggle button styles */
+.toggle-btn {
+  width: 100%;
+  padding: 1rem 0;
+  border-radius: 1rem;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #232526 0%, #414345 100%);
+  color: #fff;
+  margin: 0.7rem 0;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: background 0.2s, color 0.2s;
+}
+
+.toggle-btn.on {
+  background: linear-gradient(90deg, #00eaff 0%, #0052d4 100%);
+  color: #fff;
+}
+
+.toggle-btn.off {
+  background: linear-gradient(90deg, #232526 0%, #414345 100%);
+  color: #aaa;
+}
+
+/* Relay status styles */
+.relay-status {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+.relay-status .on {
+  color: #00eaff;
+}
+
+.relay-status .off {
+  color: #ff4d4f;
+}
+
+/* Grid container styles */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* Grid item styles */
+.grid-item {
+  background: #232526;
+  border-radius: 0.8rem; /* Slightly larger border radius */
+  padding: 1rem 1.2rem; /* Increased padding */
+  text-align: center;
+  font-size: 1rem;
+  color: #00eaff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12); /* Stronger shadow */
+}
+
+/* Total energy styles */
+.total-energy {
+  margin-top: 0.7rem;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+/* Timer settings styles */
+.timer-settings .timer-input {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Increased gap */
+  margin-bottom: 0.8rem; /* Increased bottom margin */
+}
+
+.timer-input input {
+  width: 80px; /* Slightly wider input */
+  padding: 0.6rem; /* Increased padding */
+  border-radius: 0.6rem; /* Slightly larger border radius */
+  border: 1.5px solid #444;
+  background: #232526;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.timer-input button {
+  background: #00eaff;
+  color: #232526;
+  border: none;
+  border-radius: 0.6rem; /* Slightly larger border radius */
+  padding: 0.6rem 1.2rem; /* Increased padding */
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.timer-input button:hover {
+  background: #0052d4;
+  color: #fff;
+}
+
+/* Chart container styles */
+.chart-container {
+  background: #232526;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin-top: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+
+/* Chart placeholder styles */
+.chart-placeholder {
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 1.2rem;
+  background: #232526;
+  border-radius: 0.7rem;
+  margin-bottom: 1rem;
+}
+
+/* Chart summary styles */
+.chart-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.7rem;
+}
+
+.summary-item span:first-child {
+  color: #aaa;
+  margin-right: 0.3rem;
+}
+
+.summary-item span:last-child {
+  color: #00eaff;
+  font-weight: 600;
+}
+
+/* Alert container styles */
+.alert-container {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff4d4f;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 1000; /* High z-index to be on top */
+  animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px) translateX(-50%); }
+  to { opacity: 1; transform: translateY(0) translateX(-50%); }
+}
+
+/* Main button styles */
+.main-btn {
+  background: linear-gradient(90deg, #00eaff 0%, #0052d4 100%);
+  color: #fff;
+  border: none;
+  border-radius: 1.2rem;
+  padding: 1rem 0;
+  font-size: 1.2rem; /* Slightly larger font */
+  font-weight: 700; /* Bolder font */
+  cursor: pointer;
+  margin-top: 1rem; /* Increased top margin */
+  margin-bottom: 1rem; /* Increased bottom margin */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2); /* Stronger shadow */
+  transition: background 0.3s ease, transform 0.1s ease; /* Smooth transition and press effect */
+  width: 100%;
+  display: block;
+  text-align: center;
+}
+
+.main-btn:hover {
+  background: linear-gradient(90deg, #0052d4 0%, #00eaff 100%);
+}
+
+.main-btn:active {
+  transform: scale(0.98); /* Shrink slightly when pressed */
+}
+
+/* Specific style for the connect button - ensure it uses main-btn styles */
+.connect-btn {
+  /* Inherits styles from .main-btn */
+  margin-top: 1.5rem; /* More space above connect button */
+  /* Remove any conflicting fixed/absolute positioning */
+  position: static;
+  bottom: auto;
+  right: auto;
+  z-index: auto;
+}
+
+/* Style for the logout button */
+.logout-btn {
+  background: #ff4d4f;
+  color: #fff;
+  border-radius: 0.7rem;
+  padding: 0.5rem 1.1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  width: auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: background 0.2s;
+}
+
+.logout-btn:hover {
+  background: #d9363e;
+}
+
+/* Adjust card padding and spacing */
+.card {
+  background: rgba(30,32,34,0.93);
+  border-radius: 1.5rem; /* Larger border radius */
+  box-shadow: 0 6px 20px 0 rgba(31, 38, 135, 0.25); /* Stronger shadow */
+  padding: 1.5rem 2rem; /* Increased padding */
+  margin-bottom: 1.5rem; /* Increased bottom margin */
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; /* Increased gap */
+}
+
+/* Adjust grid item padding */
+.grid-item {
+  background: #232526;
+  border-radius: 0.8rem; /* Slightly larger border radius */
+  padding: 1rem 1.2rem; /* Increased padding */
+  text-align: center;
+  font-size: 1rem;
+  color: #00eaff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.12); /* Stronger shadow */
+}
+
+/* Adjust timer input spacing */
+.timer-settings .timer-input {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* Increased gap */
+  margin-bottom: 0.8rem; /* Increased bottom margin */
+}
+
+.timer-input input {
+  width: 80px; /* Slightly wider input */
+  padding: 0.6rem; /* Increased padding */
+  border-radius: 0.6rem; /* Slightly larger border radius */
+  border: 1.5px solid #444;
+  background: #232526;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.timer-input button {
+  background: #00eaff;
+  color: #232526;
+  border: none;
+  border-radius: 0.6rem; /* Slightly larger border radius */
+  padding: 0.6rem 1.2rem; /* Increased padding */
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.timer-input button:hover {
+  background: #0052d4;
+  color: #fff;
+}
+
+/* Ensure alert container is above other elements */
+.alert-container {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff4d4f;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border-radius: 1rem;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 1000; /* High z-index to be on top */
+  animation: fadeIn 0.3s;
+}
+
+/* Remove the old floating connect button styles */
+/* This targets the inline style added previously and overrides it */
+.connect-btn[style] {
+  position: static !important;
+  bottom: auto !important;
+  right: auto !important;
+  width: 100% !important;
+  height: auto !important;
+  border-radius: 1.2rem !important;
+  font-size: 1.2rem !important;
+  padding: 1rem 0 !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 1rem !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .auth-card, .dashboard-container main {
+    max-width: 95vw; /* Slightly wider on small screens */
+    padding: 0.7rem; /* Adjusted padding */
+  }
+  .card {
+    padding: 1.2rem 1rem; /* Adjusted padding */
+    margin-bottom: 1rem; /* Adjusted margin */
+  }
+  .grid-container {
+    grid-template-columns: 1fr; /* Stack items on very small screens */
+  }
+  .timer-settings .timer-input {
+    flex-direction: column; /* Stack timer inputs */
+    align-items: stretch;
+  }
+  .timer-input input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
