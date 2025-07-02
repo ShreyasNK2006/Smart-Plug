@@ -2,19 +2,37 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on merge
+
 on:
   push:
     branches:
-      - main
+      - main # This triggers the workflow when changes are pushed to the main branch
+
 jobs:
   build_and_deploy:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # Specifies the operating system for the job
+
     steps:
-      - uses: actions/checkout@v4
-      - run: npm run build
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - name: Checkout repository # Action to check out your repository code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js environment # Action to set up Node.js
+        uses: actions/setup-node@v4
         with:
-          repoToken: ${{ secrets.GITHUB_TOKEN }}
-          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SMARTPLUGDATABASE_16852 }}
-          channelId: live
-          projectId: smartplugdatabase-16852
+          node-version: '20' # Specify the Node.js version your project uses (e.g., '16', '18', '20')
+
+      - name: Install dependencies and build project # Combined step for npm install and build
+        run: |
+          npm install # Installs project dependencies
+          npm run build # Runs the build script defined in package.json
+        working-directory: ./Smart-Plug # <--- THIS IS THE KEY FIX: Tells GitHub Actions to run these commands from the 'Smart-Plug' directory
+
+      - name: Deploy to Firebase Hosting # Action to deploy to Firebase Hosting
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: ${{ secrets.GITHUB_TOKEN }} # GitHub token for repository access
+          firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_SMARTPLUGDATABASE_16852 }} # Firebase service account for authentication
+          channelId: live # Deploys to the live channel
+          projectId: smartplugdatabase-16852 # Your Firebase project ID
+          entryPoint: ./Smart-Plug # <--- ADDED: Specifies the directory containing your firebase.json
+
